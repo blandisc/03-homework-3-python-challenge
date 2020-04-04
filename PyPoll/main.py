@@ -11,17 +11,34 @@ csvpath = os.path.join('Resources','election_data.csv')
 with open (csvpath) as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',') 
+    # Turn CSV into List
+    cleanData = list(csvreader)
 
-    # Create lists and variable to store data
+    #Delete headers and last row
+    del cleanData[0:2]
+    del cleanData[-1]
+    print(len(cleanData))
+    
+    #Create new CVS "clean"file
+with open('election_data_clean.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerows(cleanData)
+
+    # Open CSV clean file
+csvpath = os.path.join('election_data_clean.csv')
+
+# Read CSV using CVS Module
+
+with open (csvpath) as csvfile:
+
+    csvreader = csv.reader(csvfile, delimiter=',') 
+    #Create lists and variable to store data
     numberVotes = 0
     candidates = []
     numVotes = []
     votesPercentage = []
 
-    #Skip two rows, as there is a <<<<<<< HEAD and a header
-    coso = next(csvreader)
-    coso = next(csvreader)
-    
+
     # Create a for loop to iterate through all the rows of the cvs
     for coso in csvreader:
 
@@ -40,8 +57,6 @@ with open (csvpath) as csvfile:
             position = candidates.index(candidate)
             numVotes[position] += 1
 
-# Compensate for extra iteration.
-    numberVotes = numberVotes - 1
 
 # Find the percentage of votes and rounding them to two decimals
     
@@ -57,7 +72,7 @@ winnerPosition = numVotes.index(winnerV)
 winnerC = candidates[winnerPosition]  
 
 
-Results = (f" Election Results \n -------------------- \n Total Votes: {numberVotes} \n -------------------- \n ")
+Results = (f" Election Results \n -------------------- \n Total Votes: {numberVotes} \n -------------------- \n {candidates[1]} : {numVotes[1]} \n  ")
 
 # Print Results into txt file and print them in terminal
 file = open("Results.txt","w")
