@@ -64,7 +64,7 @@ with open(csvpath) as csvfile:
 Results = (f"Financial Analysis \n -------------------- \n Total Months: {numberDates} \n Total : ${financialResults} \n Average Change: $ {changeAverage} \n Greatest Increase in Profits: {monthmax} ${maxChange} \n Greatest Decrease in Profits: {monthmaxD} ${maxChangeD}")
 
 # Print Results into txt file and print them in terminal
-file = open("Results.txt","w")
+file = open("ResultsPyBank.txt","w")
 file.write(Results)
 file.close()
 

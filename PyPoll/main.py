@@ -7,7 +7,6 @@ import csv
 csvpath = os.path.join('Resources','election_data.csv')
 
 # Read CSV using CVS Module
-
 with open (csvpath) as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',') 
@@ -19,19 +18,22 @@ with open (csvpath) as csvfile:
     del cleanData[-1]
     print(len(cleanData))
     
-    #Create new CVS "clean"file
-with open('election_data_clean.csv', 'w', newline='') as file:
+#Indicate path for new file
+csvpathClean = os.path.join('Resources','election_data_clean.csv')
+
+#Create new CVS "clean"file
+with open(csvpathClean, 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerows(cleanData)
 
-    # Open CSV clean file
-csvpath = os.path.join('election_data_clean.csv')
+# Open CSV clean file
+csvpath = os.path.join('Resources','election_data_clean.csv')
 
 # Read CSV using CVS Module
-
 with open (csvpath) as csvfile:
 
-    csvreader = csv.reader(csvfile, delimiter=',') 
+    csvreader = csv.reader(csvfile, delimiter=',')
+
     #Create lists and variable to store data
     numberVotes = 0
     candidates = []
@@ -59,9 +61,7 @@ with open (csvpath) as csvfile:
 
 
 # Find the percentage of votes and rounding them to two decimals
-    
 votesPercentage = [((i /numberVotes) * 100) for i in numVotes]
-
 votesPercentage = [round(i,2)for i in votesPercentage]
 
 # Finding the winner
@@ -71,6 +71,7 @@ winnerV = max(numVotes)
 winnerPosition = numVotes.index(winnerV)
 winnerC = candidates[winnerPosition]  
 
+# Create the Results
 Results = (
             f" Election Results \n -------------------- \n" 
             f" Total Votes: {numberVotes} \n -------------------- \n" 
@@ -83,7 +84,7 @@ Results = (
             f"-------------------- ")
 
 # Print Results into txt file and print them in terminal
-file = open("Results.txt","w")
+file = open("ResultsPyPoll.txt","w")
 file.write(Results)
 file.close()
 
