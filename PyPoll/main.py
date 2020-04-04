@@ -4,7 +4,7 @@ import os
 #Import csv to read csv files
 import csv
 
-csvpath = os.path.join('Resources','02-Homework_03-Python_Instructions_PyPoll_Resources_election_data')
+csvpath = os.path.join('Resources','02-Homework_03-Python_Instructions_PyPoll_Resources_election_data.csv')
 
 # Read CSV using CVS Module
 with open (csvpath) as csvfile:
@@ -16,8 +16,15 @@ with open (csvpath) as csvfile:
     #Delete headers and last row
     del cleanData[0:2]
     del cleanData[-1]
-    print(len(cleanData))
-    
+
+    lengths = [len(i) for i in cleanData]
+
+    lenght = (min(lengths))
+
+    errorPosition =lengths.index(lenght)
+
+    del cleanData [errorPosition: errorPosition + 2]
+
 #Indicate path for new file
 csvpathClean = os.path.join('Resources','election_data_clean.csv')
 
