@@ -4,7 +4,7 @@ import os
 #Import csv to read csv files
 import csv
 
-csvpath = os.path.join('Resources','election_data.csv')
+csvpath = os.path.join('Resources','02-Homework_03-Python_Instructions_PyPoll_Resources_election_data')
 
 # Read CSV using CVS Module
 with open (csvpath) as csvfile:
