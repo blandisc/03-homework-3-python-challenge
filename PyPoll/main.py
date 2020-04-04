@@ -71,8 +71,7 @@ winnerV = max(numVotes)
 winnerPosition = numVotes.index(winnerV)
 winnerC = candidates[winnerPosition]  
 
-
-Results = (f" Election Results \n -------------------- \n Total Votes: {numberVotes} \n -------------------- \n {candidates[1]} : {numVotes[1]} \n  ")
+Results = (f" Election Results \n -------------------- \n Total Votes: {numberVotes} \n -------------------- \n {candidates[0]}: {votesPercentage[0]}% ({numVotes[0]}) \n {candidates[1]}: {votesPercentage[1]}% ({numVotes[1]}) \n {candidates[2]}: {votesPercentage[2]}% ({numVotes[2]}) \n {candidates[3]}: {votesPercentage[3]}% ({numVotes[3]}) \n -------------------- \n Winner: {winnerC} \n -------------------- ")
 
 # Print Results into txt file and print them in terminal
 file = open("Results.txt","w")
