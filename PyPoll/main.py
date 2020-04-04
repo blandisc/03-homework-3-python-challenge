@@ -59,7 +59,9 @@ winnerC = candidates[winnerPosition]
 
 Results = (f" Election Results \n -------------------- \n Total Votes: {numberVotes} \n -------------------- \n ")
 
+# Print Results into txt file and print them in terminal
+file = open("Results.txt","w")
+file.write(Results)
+file.close()
 
-
-
-print(numVotes)
+print(Results)
