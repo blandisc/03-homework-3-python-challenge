@@ -61,7 +61,13 @@ with open(csvpath) as csvfile:
     maxChangepositionD = changes.index(maxChangeD)
     monthmaxD = data3[maxChangepositionD]
 
-Results = (f"Financial Analysis \n -------------------- \n Total Months: {numberDates} \n Total : ${financialResults} \n Average Change: $ {changeAverage} \n Greatest Increase in Profits: {monthmax} ${maxChange} \n Greatest Decrease in Profits: {monthmaxD} ${maxChangeD}")
+Results = (f"Financial Analysis \n" 
+            f"-------------------- \n" 
+            f" Total Months: {numberDates} \n" 
+            f" Total : ${financialResults} \n" 
+            f" Average Change: $ {changeAverage} \n" 
+            f" Greatest Increase in Profits: {monthmax} (${maxChange}) \n" 
+            f" Greatest Decrease in Profits: {monthmaxD} (${maxChangeD})")
 
 # Print Results into txt file and print them in terminal
 file = open("ResultsPyBank.txt","w")
